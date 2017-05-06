@@ -28,3 +28,7 @@ output "load_balancer_arn" {
 output "listener_http_arn" {
   value = "${module.ecs_cluster.listener_http_arn}"
 }
+
+output "vpc_id" {
+  value = "${module.ecs_cluster.vpc_id}"
+}
