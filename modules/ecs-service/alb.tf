@@ -14,7 +14,7 @@ resource "aws_alb_listener_rule" "http" {
 }
 
 resource "aws_alb_target_group" "target_group_service" {
-  name     = "${var.alb_container_name}_tg"
+  name     = "${var.alb_container_name}-tg"
   port     = "80"
   protocol = "HTTP"
   vpc_id   = "${data.terraform_remote_state.ecs_cluster.vpc_id}"
