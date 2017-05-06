@@ -1,5 +1,5 @@
 resource "aws_alb_listener_rule" "http" {
-  listener_arn = "${data.terraform_remote_state.ecs_cluster.alb_internal_listener_http_arn}"
+  listener_arn = "${data.terraform_remote_state.ecs_cluster.listener_http_arn}"
   priority     = "${var.alb_listener_rule_priority}"
 
   action {
