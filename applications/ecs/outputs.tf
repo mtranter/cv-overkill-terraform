@@ -18,10 +18,6 @@ output "load_balancer_id" {
   value = "${module.alb.load_balancer_id}"
 }
 
-output "dns_name" {
-  value = "${module.alb.dns_name}"
-}
-
 output "load_balancer_arn" {
   value = "${module.alb.load_balancer_arn}"
 }

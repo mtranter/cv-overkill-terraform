@@ -2,10 +2,7 @@ provider "aws" {
   region = "${var.region}"
 }
 
-data "aws_route53_zone" "selected" {
-  name         = "${var.website_domain}."
-  private_zone = false
-}
+
 
 resource "aws_s3_bucket" "web_app" {
   bucket = "${var.website_subdomain}.${var.website_domain}"
@@ -25,6 +22,11 @@ data "template_file" "bucket_policy" {
     bucket = "${var.website_subdomain}.${var.website_domain}"
     secret = "${var.duplicate-content-penalty-secret}"
   }
+}
+
+data "aws_route53_zone" "selected" {
+  name         = "${var.website_domain}."
+  private_zone = false
 }
 
 resource "aws_route53_record" "domain" {

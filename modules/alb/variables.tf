@@ -18,3 +18,5 @@ variable "http_allowed_cidr_blocks" {
 variable "internal" {
   default = true
 }
+
+variable "website_domain" {}

@@ -17,9 +17,6 @@ output "load_balancer_id" {
   value = "${module.ecs_cluster.load_balancer_id}"
 }
 
-output "dns_name" {
-  value = "${module.ecs_cluster.dns_name}"
-}
 
 output "load_balancer_arn" {
   value = "${module.ecs_cluster.load_balancer_arn}"

@@ -22,3 +22,19 @@ resource "aws_alb_listener" "http" {
     type             = "forward"
   }
 }
+
+data "aws_route53_zone" "selected" {
+  name         = "${var.website_domain}."
+  private_zone = false
+}
+
+resource "aws_route53_record" "domain" {
+   name = "*.${var.website_domain}"
+   zone_id = "${data.aws_route53_zone.selected.zone_id}"
+   type = "A"
+   alias {
+     name = "${aws_alb.alb.dns_name}"
+     zone_id = "${aws_alb.alb.zone_id}"
+     evaluate_target_health = true
+   }
+}

@@ -6,6 +6,7 @@ module "vpc" {
 module "alb" {
   source          = "./../../modules/alb"
   alb_name        = "ecs-alb"
+  website_domain  = "marktranter.com"
   subnet_ids      = ["${module.vpc.subnet_ids}"]
   vpc_id          = "${module.vpc.vpc_id}"
   internal        = false

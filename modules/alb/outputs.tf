@@ -6,12 +6,12 @@ output "load_balancer_id" {
   value = "${aws_alb.alb.id}"
 }
 
-output "dns_name" {
-  value = "${aws_alb.alb.dns_name}"
-}
-
 output "load_balancer_arn" {
   value = "${aws_alb.alb.arn}"
+}
+
+output "zone_id" {
+  value = "${aws_alb.alb.zone_id}"
 }
 
 output "listener_http_arn" {
