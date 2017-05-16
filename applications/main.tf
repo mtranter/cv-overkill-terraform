@@ -16,10 +16,12 @@ resource "aws_key_pair" "root" {
 }
 
 module "frontend_website" {
-  source          = "./cv_frontend"
-  region          = "${var.region}"
-  google_clientid = "${var.google_clientid}"
-  facebook_appid  = "${var.facebook_appid}"
+  source                = "./cv_frontend"
+  region                = "${var.region}"
+  google_clientid       = "${var.google_clientid}"
+  facebook_appid        = "${var.facebook_appid}"
+  auth_zero_clientid    = "${var.auth_zero_clientid}"
+  auth_zero_thumbprint  = "${var.auth_zero_thumbprint}"
 }
 
 module "ecs_cluster" {

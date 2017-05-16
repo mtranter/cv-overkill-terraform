@@ -21,3 +21,7 @@ variable "s3_bucket_acl" {
 }
 
 variable "website_domain" {}
+
+variable "routing_rules" {
+  default = ""
+}
