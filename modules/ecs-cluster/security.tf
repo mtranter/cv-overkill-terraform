@@ -17,6 +17,15 @@ resource "aws_security_group_rule" "ecs_tcp_external" {
   security_group_id        = "${aws_security_group.ecs.id}"
 }
 
+resource "aws_security_group_rule" "vpc_inbound" {
+  type                     = "ingress"
+  from_port                = 1
+  to_port                  = 65535
+  protocol                 = "TCP"
+  cidr_blocks              = ["${var.vpc_cidr_block}"]
+  security_group_id        = "${aws_security_group.ecs.id}"
+}
+
 resource "aws_security_group_rule" "ssh" {
   type              = "ingress"
   from_port         = 22

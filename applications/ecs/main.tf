@@ -21,4 +21,5 @@ module "ecs" {
   alb_security_group_id     = "${module.alb.security_group_id}"
   ssh_allowed_cidr_blocks   = ["80.7.136.0/24"]
   ecs_cluster_name          = "cv-ecs-cluster"
+  vpc_cidr_block            = "${module.vpc.vpc_cidr_block}"
 }

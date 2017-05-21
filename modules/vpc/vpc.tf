@@ -2,6 +2,7 @@ data "aws_availability_zones" "available" {}
 
 resource "aws_vpc" "ecs_alb" {
   cidr_block = "${var.vpc_cidr_block}"
+  enable_dns_hostnames  = true
 }
 
 resource "aws_subnet" "ecs_alb" {

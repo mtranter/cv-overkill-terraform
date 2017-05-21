@@ -25,3 +25,15 @@ output "load_balancer_arn" {
 output "listener_http_arn" {
   value = "${module.alb.listener_http_arn}"
 }
+
+output "ecs_security_group_id" {
+  value = "${module.ecs.ecs_security_group_id}"
+}
+
+output "subnet_ids" {
+  value = "${module.vpc.subnet_ids}"
+}
+
+output "vpc_cidr_block" {
+  value = "${module.vpc.vpc_cidr_block}"
+}

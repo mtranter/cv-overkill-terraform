@@ -6,8 +6,8 @@ module "cv_frontend" {
 }
 
 resource "aws_iam_openid_connect_provider" "auth_zero" {
-    url = "https://marktranter.eu.auth0.com"
-    client_id_list = [
+    url             = "https://marktranter.eu.auth0.com"
+    client_id_list  = [
      "${var.auth_zero_clientid}"
     ]
     thumbprint_list = ["${var.auth_zero_thumbprint}"]
@@ -87,10 +87,10 @@ resource "aws_iam_role" "admin_role" {
           "StringEquals": {
             "cognito-identity.amazonaws.com:aud": "${aws_cognito_identity_pool.cv_app_pool.id}"
           },
-          "StringEqualsIgnoreCase": {
-            "cognito-identity.amazonaws.com:sub": [
-              "eu-west-1:feb8543b-a4ad-4041-85ba-c9972f7a1a42",
-              "eu-west-1:857c78b4-9370-4175-8cd1-5d10970aed1d"
+          "ForAnyValue:StringLike": {
+            "cognito-identity.amazonaws.com:amr": [
+              "*github|3257273",
+              "*linkedin|uuiwPHDOf3"
             ]
           }
         }

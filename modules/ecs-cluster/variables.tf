@@ -40,3 +40,5 @@ variable "alb_security_group_id" {
 variable "ssh_allowed_cidr_blocks" {
   type = "list"
 }
+
+variable "vpc_cidr_block" {}
