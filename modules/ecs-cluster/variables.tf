@@ -2,7 +2,7 @@ variable "ecs_cluster_name" {}
 
 # The instance type to use when creating the cluster instances
 variable "instance_type" {
-  default = "t2.micro"
+  default = "t2.small"
 }
 
 # The name of the keypair to attach to the instances.
@@ -28,7 +28,7 @@ variable "max_size" {
 
 # The number of nodes to run normally
 variable "desired_size" {
-  default = 1
+  default = 2
 }
 
 # The security group id of the external load balancer
